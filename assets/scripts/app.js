@@ -186,7 +186,7 @@ class ProjectList {
             if(this.projects.find(p => p.id === prjID)) {
                 return;
             }
-
+////
             document.getElementById(prjID).querySelector('button:last-of-type').click(); //trigger click on button to move element
             list.parentElement.classList.remove('droppable');
             // event.preventDefault(); //just in case we're dropping an image for example
