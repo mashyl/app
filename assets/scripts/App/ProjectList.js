@@ -1,4 +1,7 @@
-class ProjectList {
+import {ProjectItem} from './ProjectItem.js';
+import {DOMHelper} from '../Utilities/DOMHelper.js';
+
+export class ProjectList {
     projects = [];
 
     constructor(type) {
@@ -28,7 +31,7 @@ class ProjectList {
             if (event.dataTransfer.types[0] === 'text/plain') {
                 list.parentElement.classList.add('droppable');
                 event.preventDefault();
-                console.log('dragenter fired');
+                // console.log('dragenter fired');
             }
         });
 

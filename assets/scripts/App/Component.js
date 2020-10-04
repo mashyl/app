@@ -1,4 +1,4 @@
-class Component {
+export class Component {
     constructor(hostElementID, insertBefore = false) {
         if (hostElementID) {
             this.hostElement = document.getElementById(hostElementID);

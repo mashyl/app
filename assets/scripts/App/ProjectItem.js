@@ -1,4 +1,7 @@
-class ProjectItem {
+import {DOMHelper} from '../Utilities/DOMHelper.js';
+// import {ToolTip} from './Tooltip.js';
+
+export class ProjectItem {
     hasActiveTooltip = false;
 
     constructor(id, updateProjectListsFunction, type) {
@@ -15,13 +18,15 @@ class ProjectItem {
         }
         const projectElement = document.getElementById(this.id);
         const tooltipText = projectElement.dataset.extraInfo;
-        const tooltip = new ToolTip(() => {
-            this.hasActiveTooltip = false;
-        }, 
-        tooltipText,
-        this.id);
-        tooltip.attach();
-        this.hasActiveTooltip = true;
+        import('./Tooltip.js').then(module => {
+            const tooltip = new module.ToolTip(() => {
+                this.hasActiveTooltip = false;
+            }, 
+            tooltipText,
+            this.id);
+            tooltip.attach();
+            this.hasActiveTooltip = true;
+        })
     }
 
     update(updateProjectListsFn, type) {
